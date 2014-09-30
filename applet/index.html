@@ -1,0 +1,297 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <!-- charset must remain utf-8 to be handled properly by Processing -->
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+    <title>poem : Built with Processing</title>
+
+    <style type="text/css">
+      /* <![CDATA[ */
+	
+	body {
+  	  margin: 60px 0px 0px 55px;
+	  font-family: verdana, geneva, arial, helvetica, sans-serif; 
+	  font-size: 11px; 
+	  background-color: #ddddcc; 
+	  text-decoration: none; 
+	  font-weight: normal; 
+	  line-height: normal; 
+	}
+		 
+	a          { color: #3399cc; }
+	a:link     { color: #3399cc; text-decoration: underline; }
+	a:visited  { color: #3399cc; text-decoration: underline; }
+	a:active   { color: #3399cc; text-decoration: underline; }
+	a:hover    { color: #3399cc; text-decoration: underline; }
+
+      /* ]]> */
+    </style>    
+  </head>
+
+  <body>
+    <div id="content">
+      <div id="poem_container">
+
+	<!-- This version plays nicer with older browsers, 
+	     but requires JavaScript to be enabled. 
+	     http://java.sun.com/javase/6/docs/technotes/guides/jweb/deployment_advice.html
+	     http://download.oracle.com/javase/tutorial/deployment/deploymentInDepth/ -->
+	<script type="text/javascript"
+		src="http://www.java.com/js/deployJava.js"></script>
+	<script type="text/javascript">
+	  /* <![CDATA[ */
+
+	  var attributes = { 
+            code: 'poem.class',
+            archive: 'poem.jar,fullscreen.jar,controlP5.jar,core.jar',
+            width: 1350, 
+            height: 700,
+          };
+          var parameters = { 
+            image: 'loading.gif',
+            centerimage: 'true',
+          };
+          var version = '1.5';
+          deployJava.runApplet(attributes, parameters, version);
+
+          /* ]]> */
+        </script>
+        
+	<noscript> <div>
+	  <!--[if !IE]> -->
+	  <object classid="java:poem.class" 
+            	  type="application/x-java-applet"
+            	  archive="poem.jar,fullscreen.jar,controlP5.jar,core.jar"
+            	  width="1350" height="700"
+            	  standby="Loading Processing software..." >
+            
+	    <param name="archive" value="poem.jar,fullscreen.jar,controlP5.jar,core.jar" />
+	    
+	    <param name="mayscript" value="true" />
+	    <param name="scriptable" value="true" />
+	    
+	    <param name="image" value="loading.gif" />
+	    <param name="boxmessage" value="Loading Processing software..." />
+	    <param name="boxbgcolor" value="#FFFFFF" />
+	  <!--<![endif]-->
+
+	    <!-- For more instructions on deployment, 
+		 or to update the CAB file listed here, see:
+		 http://java.sun.com/javase/6/webnotes/family-clsid.html
+		 http://java.sun.com/javase/6/webnotes/install/jre/autodownload.html -->
+	    <object classid="clsid:8AD9C840-044E-11D1-B3E9-00805F499D93"
+		    codebase="http://java.sun.com/update/1.6.0/jinstall-6u20-windows-i586.cab"
+		    width="1350" height="700"
+		    standby="Loading Processing software..."  >
+	      
+	      <param name="code" value="poem" />
+	      <param name="archive" value="poem.jar,fullscreen.jar,controlP5.jar,core.jar" />
+	      
+	      <param name="mayscript" value="true" />
+	      <param name="scriptable" value="true" />
+	      
+	      <param name="image" value="loading.gif" />
+	      <param name="boxmessage" value="Loading Processing software..." />
+	      <param name="boxbgcolor" value="#FFFFFF" />
+	      
+	      <p>
+		<strong>
+		  This browser does not have a Java Plug-in.
+		  <br />
+		  <a href="http://www.java.com/getjava" title="Download Java Plug-in">
+		    Get the latest Java Plug-in here.
+		  </a>
+		</strong>
+	      </p>
+	      
+	    </object>
+	    
+	  <!--[if !IE]> -->
+	  </object>
+	  <!--<![endif]-->
+
+	</div> </noscript>
+
+      </div>
+      
+      <p>
+	 fulscreen mode
+  fs = new FullScreen(this);
+  fs.enter();
+  //************** fullscreen mode done
+  
+  //*********control panel background
+  noStroke();
+  fill(100, 100, 100, 50);
+  rect(0, 0, 300, 300);
+  //*********
+  
+  //****** load button with ControlP5
+  cp5 = new ControlP5(this);
+  
+  //***********reate load button
+  cp5.addButton("Load_Poem")
+     .setValue(0)
+     .setPosition(30, 20)
+     .setSize(60, 50)
+     ;
+   //*********button finished
+   
+  cp5.addButton("Create_Vizualization")
+  .setValue(0)
+  .setPosition(100, 20)
+  
+  .setSize(100, 50)
+  ;
+  
+   
+   fontA = loadFont("SansSerif.plain-13.vlw"); 
+   textFont(fontA, 13);
+   //....................
+   //converting the random values into integers
+   loadCounterOne = random(0, 3);
+   loaderOne = int(loadCounterOne);
+   
+   loadCounterTwo = random(0, 1);
+   loaderTwo = int(loadCounterTwo);
+   
+   loadCounterThree = random(0, 1);
+   loaderThree = int(loadCounterThree);
+   
+   loadCounterFour = random(0, 2);
+   loaderFour = int(loadCounterFour);
+   
+   loadCounterFive = random(0, 1);
+   loaderFive = int(loadCounterFive);
+   
+ }
+
+void draw()
+{
+      
+    
+}
+
+  void Load_Poem(int theValue)
+    { 
+      String poem = selectInput();
+      
+      String[] poet = loadStrings(poem);
+      
+      println(poet[0]+ "," + poet[1]);
+      //float f = float(c);
+      //println(c + ":" + " " + f);
+      
+      //.......................
+      
+      lineOne = splitTokens(poet[0], " .;,-:!");
+
+      for (int i = 0; i < lineOne.length; i++)
+    {
+      println(lineOne[i] + ": " + i);
+      // converting words from a random loaction on each line into floats for co-ordinates
+      e = float(lineOne[loaderOne].charAt(loaderOne));
+      println(e);
+    }
+    
+    lineTwo = splitTokens(poet[1], " .;,-:!");
+      for (int x = 0; x < lineTwo.length; x++)
+    {
+      println(lineTwo[x] + ": " + x);
+      f = float(lineTwo[loaderTwo].charAt(loaderTwo));
+      println(f);
+    }
+    
+    lineThree = splitTokens(poet[2], " .;,-:!");
+      for (int y = 0; y < lineThree.length; y++)
+    {
+      println(lineThree[y] + ": " + y);
+      g = float(lineThree[loaderThree].charAt(loaderThree));
+      println(g);
+    }
+    
+    lineFour = splitTokens(poet[3], " .;,-:!");
+      for (int z = 0; z < lineFour.length; z++)
+    {
+      println(lineFour[z] + ": " + z);
+      h = float(lineFour[loaderFour].charAt(loaderFour));
+      println(h);
+    }
+    
+    lineFive = splitTokens(poet[4], " .;,-:!");
+      for (int m = 0; m < lineFive.length; m++)
+    {
+      println(lineFive[m] + ": " + m);
+      j = float(lineFive[loaderFive].charAt(loaderFive));
+      println(j);
+    }
+
+   //.....................................
+
+      background(255);
+      fill(70, 70, 70);
+      
+      text(poet[0], 30, 130);
+      text(poet[1], 30, 160);
+      text(poet[2], 30, 190);
+      text(poet[3], 30, 220);
+      text(poet[4], 30, 250);
+     }
+      
+void Create_Vizualization(int theValue)
+{
+     /* noStroke();
+      fill(255); 
+      rect(480, 480, 450, 300);
+      
+      fill(0, 0, 0);
+      text(e, 500, 500);
+      text(f, 600, 500);
+      text(g, 700, 500);
+      text(h, 800, 500);
+      text(j, 900, 500);
+      
+     k = random(100);
+     l = random(100);
+     o = random(100);
+     p = random(100);
+     q = random(100);
+      
+      text(k, 500, 600);
+      text(l, 600, 600);
+      text(o, 700, 600);
+      text(p, 800, 600);
+      text(q, 900, 600);*/
+     //........
+     
+    /* fill(45, 37, 37);
+     beginShape();
+     vertex((width/2) + e*2, (height/2) + f*2);
+     vertex((width/2) + k*2, (height/2) + l*2);
+     vertex((width/2) + g*2, (height/2) + h*2);
+     vertex((width/2) + o*2, (height/2) + p*2);
+     vertex((width/2) + j*2, (height/2) + q*2);
+     endShape();*/
+    
+    /* noStroke();
+     smooth();
+     fill(random(100), random(100), random(100), random(100));
+     ellipse(width/2 + e*2, height/2 + k, f + random(200), l + random(200));
+     ellipse(width/2 + f, height/2 + l*2, g + random(200), o + random(200));
+     ellipse(width/2 + g*2, height/2 + o, h + random(200), p + random(200));
+     ellipse(width/2 + h, height/2 + p*2, j + random(200), q + random(200));
+     ellipse(width/2 + j*2, height/2 + q, e + random(200), k + random(200));
+
+      </p>
+      
+      <p>
+	Source code: <a href="poem.pde">poem</a> 
+      </p>
+      
+      <p>
+	Built with <a href="http://processing.org" title="Processing.org">Processing</a>
+      </p>
+    </div>
+  </body>
+</html>
